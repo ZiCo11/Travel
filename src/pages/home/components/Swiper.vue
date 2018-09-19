@@ -18,6 +18,7 @@ export default {
   data: function () {
     return {
       swiperOption: {
+        // 传递class 名字
         pagination: '.swiper-pagination',
         loop: true
       },
@@ -34,14 +35,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  /*因为单组件样式不受影响*/
   .wrapper >>> .swiper-pagination-bullet-active
-    background: red !important
+    background: white
   .wrapper
     /* 这是图片宽高自适应样式 */
     overflow: hidden
     width: 100%
     height: 0
-    padding-bottom: 31.25%
+    padding-bottom: 26.67%
     .swipe-img
       width: 100%
 </style>
