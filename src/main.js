@@ -6,9 +6,11 @@ import router from './router'
 // 解决移动端300毫秒延迟 引入fastclick
 import fastClick from 'fastclick'
 // 样式重置
-import './assets/styles/reset.css'
+import 'styles/reset.css'
 // 1 像素边框解决方案
-import './assets/styles/border.css'
+import 'styles/border.css'
+// 引入iconfont
+import 'styles/iconfont.css'
 
 Vue.config.productionTip = false
 // 使用fastclick
