@@ -8,7 +8,12 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">
+              <!--这是vuex-->
+              <!--{{this.$store.state.city}}-->
+              <!--这是mapState映射来的-->
+              {{this.currentCity}}
+            </div>
           </div>
         </div>
       </div>
@@ -16,7 +21,11 @@
       <div class="area">
         <div class="title border-topbottom" >热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div class="button-wrapper"
+               v-for="item of hot"
+               :key="item.id"
+               @click="handleCityClick(item.name)"
+          >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -29,7 +38,11 @@
       >
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div class="item border-bottom"
+               v-for="innerItem of item"
+               :key="innerItem.id"
+               @click="handleCityClick(innerItem.name)"
+          >{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -39,12 +52,36 @@
 <script>
 // 引入本地安装的 better-scroll
 import BScroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'List',
   props: {
     cities: Object,
     hot: Array,
     letter: String
+  },
+  computed: {
+    // ... 展开运算符
+    // mapState 是指把vuex的数据映射到组件的计算属性里
+    // 传递的数据可以是数组 也可以是对象
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    handleCityClick (city) {
+      // 触发action 使用dispatch
+      // 派发一个changeCity  把city传过去
+      // this.$store.dispatch('changeCity', city)
+      // 通过mapMutations改进代码
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    // 在组件中提交 Mutation,可以在组件中使用 this.$store.commit('xxx') 提交 mutation，
+    // 或者使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit
+    // 调用（需要在根节点注入 store）。
+    ...mapMutations(['changeCity'])
   },
   // 在页面挂载完成之后 钩子函数
   mounted () {
@@ -92,7 +129,7 @@ export default {
      font-size: .26rem
      color: #666
    .button-list
-     /* 这里父盒子overflowhidden 触发BFC*/
+     /* 这里父盒子overflow: hidden 触发BFC*/
      overflow: hidden
      padding: .1rem .6rem .1rem .1rem
      .button-wrapper

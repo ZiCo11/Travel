@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 // 引入 swiper 插件 全局引用
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-// 解决移动端300毫秒延迟 引入fastclick
+// 引入store Vuex
+import store from './store'
+// 解决移动端300毫秒延迟 引入fast-click
 import fastClick from 'fastclick'
 // 样式重置
 import 'styles/reset.css'
@@ -26,6 +28,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
