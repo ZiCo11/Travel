@@ -50,7 +50,7 @@ export default {
   activated () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  // 移除监听事件
+  // 移除监听事件 对于全局事件 必须解绑！！！
   deactivated () {
     window.removeEventListener('scroll', this.handleScroll)
   }
