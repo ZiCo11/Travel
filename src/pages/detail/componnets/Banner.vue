@@ -12,6 +12,7 @@
         </div>
       </div>
     </div>
+    <!--监听子组件派发的时间-->
     <fade-animation>
       <common-gallery
         :imgs="bannerImgs"
