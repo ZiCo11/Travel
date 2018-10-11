@@ -19,7 +19,7 @@ import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
-// 使用fastclick
+// 使用 fastclick
 fastClick.attach(document.body)
 
 Vue.use(VueAwesomeSwiper)

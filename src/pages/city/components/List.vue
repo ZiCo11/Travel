@@ -64,6 +64,7 @@ export default {
     // ... 展开运算符
     // mapState 是指把vuex的数据映射到组件的计算属性里
     // 传递的数据可以是数组 也可以是对象
+    // 这里就是把city数据映射到currentCity对象
     ...mapState({
       currentCity: 'city'
     })
@@ -72,7 +73,7 @@ export default {
     handleCityClick (city) {
       // 触发action 使用dispatch
       // 派发一个changeCity  把city传过去
-      // this.$store.dispatch('changeCity', city)
+      // this.$store.dis patch('changeCity', city)
       // 通过mapMutations改进代码
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
