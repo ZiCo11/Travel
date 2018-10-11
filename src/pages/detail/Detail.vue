@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <detail-banner :sightName="sightName"
                    :bannerImg="bannerImg"
                    :bannerImgs="gallaryImgs"
@@ -42,13 +42,17 @@ export default {
     },
     handleGetDataSucc (res) {
       res = res.data
+      console.log(res)
       if (res.ret && res.data) {
         const data = res.data
-        console.log(res.data)
-        this.sightName = data.sightName
-        this.bannerImg = data.bannerImg
-        this.gallaryImgs = data.gallaryImgs
-        this.list = data.categoryList
+        data.forEach((value, index) => {
+          if (value.id === this.$route.params.id) {
+            this.sightName = value.sightName
+            this.bannerImg = value.bannerImg
+            this.gallaryImgs = value.gallaryImgs
+            this.list = value.categoryList
+          }
+        })
       }
     }
   },
@@ -59,6 +63,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .wrapper
+    background: #cacaca
   .content
     height: 50rem
 </style>

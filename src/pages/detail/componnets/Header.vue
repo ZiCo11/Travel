@@ -49,7 +49,7 @@ export default {
       }
     }
   },
-  activated () {
+  created () {
     window.addEventListener('scroll', this.handleScroll)
   },
   // 移除监听事件 对于全局事件 必须解绑！！！

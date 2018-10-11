@@ -72,8 +72,8 @@ export default {
       background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .8))
       .banner-title
         flex: 1
-        font-size: .32rem
-        padding: 0 .2rem
+        font-size: .36rem
+        padding: 0 .2rem .2rem .2rem
         color: #fff
       .banner-number
         padding: 0 .4rem
