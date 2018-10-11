@@ -55,8 +55,8 @@ export default {
       margin-left: .2rem
       padding-left: .2rem
       background: #fff
-      border-radius: .1rem
-      color: #ccc
+      border-radius: .06rem
+      color: #e4e7ea
     .header-right
       min-width: 1.04rem
       padding: 0 .1rem

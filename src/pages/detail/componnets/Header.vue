@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--箭头 返回上一页-->
     <router-link
       tag="div"
       to="/"
@@ -8,6 +9,7 @@
     >
       <div  class="iconfont header-abs-back">&#xe624;</div>
     </router-link>
+    <!--滚动 吸顶-->
     <div
       class="header-fixed"
       v-show="!showAbs"
@@ -61,11 +63,11 @@ export default {
   @import "~styles/varibles.styl"
   .header-abs
     position: absolute
-    left: .2rem
-    top: .2rem
-    width: .8rem
-    height: .8rem
-    line-height: .8rem
+    left: 0.1rem
+    top: 0.1rem
+    width: .72rem
+    height: .72rem
+    line-height: .72rem
     text-align: center
     border-radius: .4rem
     background: rgba(0, 0, 0, .8)
@@ -73,8 +75,8 @@ export default {
       color: #fff
       font-size: .4rem
   .header-fixed
-    z-index: 2
-    position:fixed
+    z-index: 8
+    position: fixed
     top: 0
     left: 0
     right: 0
